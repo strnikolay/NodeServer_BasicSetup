@@ -1,0 +1,11 @@
+PORT= PORT
+DB_URL="mongodb+srv://(*Pass:*login@*Host/*basename)"
+jwt = 'dev-jwt'
+JWT_ACCESS_SECRET= ACCESS_SECRET
+JWT_REFRESH_SECRET=REFRESH_SECRET
+SMTP_HOST="SMTP_HOST"
+SMTP_PORT=587
+SMTP_USER=ваша почта
+SMTP_PASSWORD=пароль от почты
+API_URL=http://localhost:5000
+CLIENT_URL=http://localhost:3000
