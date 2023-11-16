@@ -7,7 +7,7 @@ const userSchema = new Schema({
         required: true,
         unique: true
     },
-    /*phone:{               // раскомментироватьб если логин по телефону, а email удалить
+    /*phone:{// раскомментироватьб если логин по телефону, а email удалить
         type: String,
         required: true,
         unique: true
