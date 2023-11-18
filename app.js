@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 
@@ -17,7 +18,10 @@ app.use(morgan('dev'))
 
 
 const cors = require('cors')
-app.use(cors())
+app.use(cors({
+	origin: process.env.CLIENT_URL , 
+    credentials: true
+}))
 
 const errorHandler = require("./middleware/ErrorHandlingMiddleware");
 app.use(errorHandler);
@@ -34,7 +38,7 @@ app.use(express.urlencoded({extended: true}))
 
 /**для работы с cookie*/
 const cookieParser = require("cookie-parser");
-app.use(cookieParser());
+app.use(cookieParser(process.env.SECRET_KEY));
 
 
 /**для предоставления статических файлов. Например изображений*/
