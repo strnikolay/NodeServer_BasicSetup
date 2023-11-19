@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const User = require('../models/User')
+const User = require('../ModelsMongoDB/User')
 const errorHandler = require('../utils/errorHandler')
 
 //const SMSru = require('sms_ru')
