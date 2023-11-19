@@ -18,14 +18,20 @@ const errorHandler = require('../utils/errorHandler')
 }*/
 
 module.exports.login = async function(req, res) {
-    const candidate = await User.findOne({email: req.body.email})
-    //const candidate = await User.findOne({phone: req.body.phone})      //если логин по телефону
+    try{
+        const {email, password} = req.body;
+        const userData = await userService.login(email, password);
+        res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+        return res.json(userData);
+    } catch (e) {next(e);}
 
-    if (candidate){
+
+
+    /*if (candidate){
         const passwordResult = bcrypt.compareSync(req.body.password, candidate.password)
 
         /**логин и пароль верный */
-        if (passwordResult) {
+        /*if (passwordResult) {
             const token = jwt.sign({
                 email: candidate.email,
                 //phone: candidate.phone,      //если логин по телефону
@@ -39,15 +45,15 @@ module.exports.login = async function(req, res) {
             res.status(401).json({
                 message: 'пароль не верный'
             })
-        }
-    } else {
+        }*/
+    /*} else {
         res.status(404).json({
             message: 'пользователь не существует'
         })
-    }
+    }*/
 }
 
-module.exports.register = async function(req, res){
+module.exports.registration = async function(req, res){
     const candidate = await User.findOne({email: req.body.email})
 
     if (candidate){
