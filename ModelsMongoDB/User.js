@@ -15,7 +15,21 @@ const userSchema = new Schema({
     password:{
         type: String,
         required: true
+    },
+    isActivated: {
+        type: Boolean,
+         default: false
+    },
+    activationLink: {
+        type: String
+    },
+    avatar:{
+        type: String
+    },
+    nickname:{
+        type: String
     }
+
 })
 
 module.exports = mongoose.model('users', userSchema)
