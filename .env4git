@@ -1,4 +1,5 @@
-PORT= PORT
+PORT= 5000
+WSPORT = 8000
 DB_URL="mongodb+srv://(*Pass:*login@*Host/*basename)"
 jwt = 'dev-jwt'
 JWT_ACCESS_SECRET= ACCESS_SECRET
