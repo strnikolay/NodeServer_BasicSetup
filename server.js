@@ -26,7 +26,7 @@ const WSPORT = process.env.WSPORT || 8000;
     await sequelize.sync({ alter: true });    
 
     app.listen(httpPort, () => console.log(`Server has been started on ${httpPort}`))
-    SocketServer.listen(PORT2, () => console.log(`Socket started on PORT = ${PORT2}`))
+    SocketServer.listen(WSPORT, () => console.log(`Socket started on PORT = ${WSPORT}`))
     } catch (e) {
         console.log(e);
     }
