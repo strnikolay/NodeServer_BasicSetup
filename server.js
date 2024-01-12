@@ -11,6 +11,7 @@ const WSServer  = require ("socket.io")(SocketServer, {
     }
 });
 const socketService = require('./service/socket-service')
+WSServer.on('connection', socketService.onConnection);
 
 const httpPort = process.env.PORT || 5000;
 const WSPORT = process.env.WSPORT || 8000;
